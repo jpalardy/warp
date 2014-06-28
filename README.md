@@ -12,7 +12,7 @@ with a list picker.
 
 Now you can.
 
-GIF GOES HERE
+![warp demo](https://raw.githubusercontent.com/jpalardy/warp/master/assets/warp.gif)
 
 `warp` is a script that reads a file (`~/.warp`) and displays it in VIM. When
 you press enter, you ssh to the hostname under the cursor.
