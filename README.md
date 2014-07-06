@@ -2,8 +2,7 @@
 warp
 ====
 
-Imagine if you could make a list of hostnames, and SSH to them by selecting one
-with a list picker.
+Imagine if you could SSH somewhere by picking a hostname from a list.
 
 Now you can:
 
