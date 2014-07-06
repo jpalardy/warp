@@ -69,7 +69,7 @@ Any VIM movement commands will work, this is regular VIM after all. I recommend
 searching with all the regular expression goodness, but using line numbers is
 good too.
 
-VIM is started with the content of ~/.warp`, but you can modify the buffer
+VIM is started with the content of `~/.warp`, but you can modify the buffer
 before making a selection -- changes will NOT be saved back to `~/.warp`. This
 is useful if you want to SSH to multiple hosts that are not on lines following
 each other: just slice and dice the file, put the lines together, add or modify
