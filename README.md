@@ -54,7 +54,7 @@ Like this:
 The simplest format is one hostname per line. When you press enter, only the
 first column (`awk '{print $1}'`) is taken as the hostname.
 
-This also means, if you DON'T press enter on a line, it can contain whatever
+This also means, if you DON'T press enter on a line, it can be whatever
 you want: it can be blank or contain comments. This can greatly help with the
 visual organization of the file. I like to put headers, separators and notes all
 over the file.
@@ -66,8 +66,7 @@ If you visually select (shift-v) multiple lines, cluster SSH (`csshX`) will be
 used to SSH to them.
 
 Any VIM movement commands will work, this is regular VIM after all. I recommend
-searching with all the regular expression goodness, but using line numbers is
-good too.
+searching with regular expressions, but using line numbers is good too.
 
 VIM is started with the content of `~/.warp`, but you can modify the buffer
 before making a selection -- changes will NOT be saved back to `~/.warp`. This
