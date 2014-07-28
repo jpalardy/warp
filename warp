@@ -42,7 +42,13 @@ warp() {
   local COMMAND="$(awk -v cmd=$SSH 'BEGIN {printf cmd} {printf " " $1} END { print "" }' "$TARGET")"
 
   # add the command to the bash history as if we had typed it, will only work if sourced
-  eval "history -s $COMMAND"
+  # Determine which history command to use based on shell
+  if [ -n "$BASH_VERSION" ]; then
+    eval "history -s $COMMAND"
+  elif [ -n "$ZSH_VERSION" ]; then
+    eval "print -s $COMMAND"
+  fi
+
   # run the command
   eval $COMMAND
 }
@@ -50,5 +56,7 @@ warp() {
 # allow warp to be sourced without running
 if [[ $_ == $0 ]]; then
   warp
+else
+  # Hide warp from history if using zsh and setopt histignorespace
+  alias warp=" warp"
 fi
-
