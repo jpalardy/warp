@@ -39,12 +39,12 @@ warp() {
       SSH=${MULTISSH:-csshX}
     fi
   fi
-  local COMMAND=$(awk -v cmd=$SSH 'BEGIN {printf cmd} {printf " " $1} END { print "" }' "$TARGET")
+  local COMMAND="$(awk -v cmd=$SSH 'BEGIN {printf cmd} {printf " " $1} END { print "" }' "$TARGET")"
 
   # add the command to the bash history as if we had typed it, will only work if sourced
-  history -s $COMMAND
+  eval "history -s $COMMAND"
   # run the command
-  $COMMAND
+  eval $COMMAND
 }
 
 # allow warp to be sourced without running
