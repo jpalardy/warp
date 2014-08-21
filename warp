@@ -37,10 +37,11 @@ warp() {
       SSH=${MULTISSH:-csshX}
     fi
   fi
-  if [ "$(expr substr $(uname -s) 1 6)" == "Darwin" ]; then
+  _uname=$(uname -s)
+  if [ "${_uname:0:6}" == "Darwin" ]; then
     sed -i "" "s/#.*$//g" ~/.picked
     sed -i "" "s/\-\-.*$//g" ~/.picked
-  elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  elif [ "${_uname:0:5}" == "Linux" ]; then
     sed -i "s/#.*$//g" ~/.picked
     sed -i "s/\-\-.*$//g" ~/.picked
   fi
