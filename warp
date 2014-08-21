@@ -37,7 +37,15 @@ warp() {
       SSH=${MULTISSH:-csshX}
     fi
   fi
-  local COMMAND="$(awk -v cmd=$SSH 'BEGIN {printf cmd} {printf " " $1} END { print "" }' "$TARGET")"
+  _uname=$(uname -s)
+  if [ "${_uname:0:6}" == "Darwin" ]; then
+    sed -i "" "s/#.*$//g" ~/.picked
+    sed -i "" "s/\-\-.*$//g" ~/.picked
+  elif [ "${_uname:0:5}" == "Linux" ]; then
+    sed -i "s/#.*$//g" ~/.picked
+    sed -i "s/\-\-.*$//g" ~/.picked
+  fi
+  local COMMAND="$(awk -v cmd=$SSH 'BEGIN {printf cmd} {printf " " $0} END { print "" }' "$TARGET")"
 
   # add the command to the bash history as if we had typed it, will only work if sourced
   # Determine which history command to use based on shell
