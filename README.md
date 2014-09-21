@@ -74,6 +74,21 @@ is useful if you want to SSH to multiple hosts that are not on lines following
 each other: just slice and dice the file, put the lines together, add or modify
 something, select them and press enter.
 
+What about ports or other host-specific config?
+-----------------------------------------------
+
+I think the right solution for this is the put your host-specific config in
+your `$HOME/.ssh/config`:
+
+    Host somewhere
+      Hostname somewhere.com
+      Port 5656
+      User bob
+      # etc...
+
+The syntax is simple, it goes with your other SSH config, and it configures
+your other SSH-backed commands like scp, rsync, and cluster SSH.
+
 
 Warp as an executable
 ---------------------
