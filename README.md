@@ -33,6 +33,7 @@ Like this:
 
     example.com
     www@example.com
+    anotherBox:2222 # with port
 
     # AMAZON
 
@@ -88,6 +89,9 @@ your `$HOME/.ssh/config`:
 
 The syntax is simple, it goes with your other SSH config, and it configures
 your other SSH-backed commands like scp, rsync, and cluster SSH.
+
+But you can also use `hostname:port` or even `user@hostname:port` in the warp
+file if you want to keep things simple.
 
 
 Warp as an executable
