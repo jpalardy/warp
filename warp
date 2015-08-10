@@ -61,7 +61,7 @@ warp() {
 # allow warp to be sourced without running
 if [[ $_ == $0 ]]; then
   # pass all arguments to the warp function
-  warp $@
+  warp "$@"
 else
   # Hide warp from history if using zsh and setopt histignorespace
   alias warp=" warp"
