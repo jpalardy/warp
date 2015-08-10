@@ -2,12 +2,9 @@
 
 warp() {
   
-  # use the first argument to specify an alternative warp file
-  if [ ! -z "$1" ]; then 
-    local SOURCE="$1"
-  else
-    local SOURCE="$HOME/.warp"
-  fi
+  # if a first argument is supplied, then use it as the warp file location
+  # otherwise, use the default "$HOME/.warp" location
+  local SOURCE="${1:-$HOME/.warp}"
 
   # ensure SOURCE file exists
   if [ ! -f "$SOURCE" ]; then
