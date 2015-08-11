@@ -75,6 +75,9 @@ is useful if you want to SSH to multiple hosts that are not on lines following
 each other: just slice and dice the file, put the lines together, add or modify
 something, select them and press enter.
 
+An alternative file to choose hostnames from can be specified by passing the location
+of the file as the first argument to the script.
+
 What about ports or other host-specific config?
 -----------------------------------------------
 

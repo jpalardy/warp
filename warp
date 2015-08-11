@@ -1,8 +1,12 @@
 #!/bin/bash
 
 warp() {
+  
+  # if a first argument is supplied, then use it as the warp file location
+  # otherwise, use the default "$HOME/.warp" location
+  local SOURCE="${1:-$HOME/.warp}"
+
   # ensure SOURCE file exists
-  local SOURCE="$HOME/.warp"
   if [ ! -f "$SOURCE" ]; then
     echo "$SOURCE does not exist..."
     return 1
@@ -56,7 +60,8 @@ warp() {
 
 # allow warp to be sourced without running
 if [[ $_ == $0 ]]; then
-  warp
+  # pass all arguments to the warp function
+  warp "$@"
 else
   # Hide warp from history if using zsh and setopt histignorespace
   alias warp=" warp"
