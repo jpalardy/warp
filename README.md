@@ -121,7 +121,7 @@ Contributors
 
 Thanks to the following people for helping me out:
 
-* Daniel T ([https://github.com/r0b0tbuilder](@r0b0tbuilder))
-* Daniel Morrison ([https://github.com/dmorrison42](@dmorrison42))
-* David Chapman ([https://github.com/dchapman1988](@dchapman1988))
+* Daniel T ([@r0b0tbuilder](https://github.com/r0b0tbuilder))
+* Daniel Morrison ([@dmorrison42](https://github.com/dmorrison42))
+* David Chapman ([@dchapman1988](https://github.com/dchapman1988))
 
