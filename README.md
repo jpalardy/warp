@@ -116,3 +116,12 @@ shell, type `warp`, press enter. A function was added to your shell.
 `warp` will modify the history to contain the SSH command (as if you typed it)
 rather than `warp`.
 
+Contributors
+------------
+
+Thanks to the following people for helping me out:
+
+* Daniel T ([https://github.com/r0b0tbuilder](@r0b0tbuilder))
+* Daniel Morrison ([https://github.com/dmorrison42](@dmorrison42))
+* David Chapman ([https://github.com/dchapman1988](@dchapman1988))
+
