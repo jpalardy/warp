@@ -52,6 +52,11 @@ Like this:
     router
     192.168.0.5 -- laptop
 
+    # mosh
+    mosh anotherBox
+    mosh anotherBox:2222
+
+
 The simplest format is one hostname per line. When you press enter, only the
 first column (`awk '{print $1}'`) is taken as the hostname.
 
