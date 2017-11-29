@@ -43,7 +43,31 @@ warp() {
     fi
     COMMAND="$(awk -v cmd=$SSH 'BEGIN {printf cmd} {printf " " $1} END { print "" }' "$TARGET")"
   else
-    COMMAND="$(awk -v cmd=$SSH '{ n = split($1, parts, ":"); if (n == 2) { print cmd, "-p", parts[2], parts[1] } else { print cmd, $1 } }' "$TARGET")"
+    COMMAND="$(awk -v cmd=$SSH '{ 
+        n = split($0, parts, ":"); 
+        if (n == 2) {
+            m = split(parts[1], arr, " "); 
+            split(parts[2], ports, " "); 
+            if (m == 2) {
+                print arr[1], "-p", ports[1], arr[2]
+            } else {
+                print cmd, "-p", ports[1], parts[1]
+            }
+        } else { 
+            m = split($0, arr, " "); 
+            if (m == 2) {
+                print arr[1], arr[2]
+            } else if(m > 2) {
+                if (arr[1] == "mosh") {
+                    print arr[1], arr[2]
+                } else {
+                    print cmd, $1 
+                }
+            } else {
+                print cmd, $1 
+            }
+        }
+    }' "$TARGET")"
   fi
 
   # add the command to the bash history as if we had typed it, will only work if sourced
