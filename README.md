@@ -19,7 +19,7 @@ Why?
 If you have a bunch of servers you can SSH to, think about how you manage that now:
 
 * you TYPE the hostname, maybe relying on bash completion?
-* you create a BUNCH of aliases, with varying level of sophistication, based on how many hostnames?
+* you create a BUNCH of aliases, with varying levels of sophistication, based on how many hostnames?
 
 Picking from a list solves all that.
 
@@ -51,6 +51,10 @@ Like this:
     tv
     router
     192.168.0.5 -- laptop
+
+    # mosh
+    mosh anotherBox
+    mosh -p 2222 anotherBox
 
 The simplest format is one hostname per line. When you press enter, only the
 first column (`awk '{print $1}'`) is taken as the hostname.
@@ -124,4 +128,5 @@ Thanks to the following people for helping me out:
 * Daniel T ([@r0b0tbuilder](https://github.com/r0b0tbuilder))
 * Daniel Morrison ([@dmorrison42](https://github.com/dmorrison42))
 * David Chapman ([@dchapman1988](https://github.com/dchapman1988))
+* Dalei ([@daleione](https://github.com/daleione))
 
