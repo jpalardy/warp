@@ -18,12 +18,12 @@ warp() {
   fi
 
   # make a selection, with vim
-  cat "$SOURCE" | vim -c "setlocal noreadonly" \
-                      -c "setlocal cursorline" \
-                      -c "setlocal number" \
-                      -c "nnoremap <buffer> <CR> V:w! ~/.picked<CR>:qa!<CR>" \
-                      -c "vnoremap <buffer> <CR>  :w! ~/.picked<CR>:qa!<CR>" \
-                      -R -
+  vim -c "setlocal noreadonly" \
+      -c "setlocal cursorline" \
+      -c "setlocal number" \
+      -c "nnoremap <buffer> <CR> V:w! ~/.picked<CR>:qa!<CR>" \
+      -c "vnoremap <buffer> <CR>  :w! ~/.picked<CR>:qa!<CR>" \
+      -R - < "$SOURCE"
   # nothing was selected, abort
   if [ ! -e "$TARGET" ]; then
     return
@@ -32,17 +32,17 @@ warp() {
   # transform seletion in ssh command
   local SSH=${SSH:-ssh}
   local COMMAND=""
-  if [ $(cat "$TARGET" | wc -l) -gt 1 ]; then
+  if [ "$(wc -l < "$TARGET")" -gt 1 ]; then
     # determine which clusterssh to use based on os
-    unamestr=`uname`
+    unamestr=$(uname)
     if [[ "$unamestr" == 'Linux' ]]; then
       SSH=${MULTISSH:-cssh}
     elif [[ "$unamestr" == 'Darwin' ]]; then
       SSH=${MULTISSH:-csshX}
     fi
-    COMMAND="$(awk -v cmd=$SSH 'BEGIN {printf cmd} {printf " " $1} END { print "" }' "$TARGET")"
+    COMMAND="$(awk -v cmd="$SSH" 'BEGIN {printf cmd} {printf " " $1} END { print "" }' "$TARGET")"
   else
-    COMMAND="$(awk -v cmd=$SSH '
+    COMMAND="$(awk -v cmd="$SSH" '
       # -------------------------------------------------
       # removing trailing comments and whitespace
       # -------------------------------------------------
@@ -83,11 +83,11 @@ warp() {
   fi
 
   # run the command
-  eval $COMMAND
+  eval "$COMMAND"
 }
 
 # allow warp to be sourced without running
-if [[ $_ == $0 ]]; then
+if [[ $_ == "$0" ]]; then
   # pass all arguments to the warp function
   warp "$@"
 else
