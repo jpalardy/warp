@@ -17,7 +17,7 @@ If you select multiple lines, it opens cluster SSH.
 
 How do you manage your servers now?
 
-* do you TYPE the hostname, maybe relying on bash completion?
+* do you TYPE the hostname, maybe relying on shell completion?
 * do you create (and maintain) a BUNCH of aliases, one for each host?
 
 Picking from a list solves all that.
@@ -75,15 +75,15 @@ something, select them and press ENTER. Changes will NOT be saved back to `~/.wa
 ## Warp as an executable
 
 Put `warp` somewhere in your $PATH. This is simple but it won't be able to
-modify your history: your bash history will say `warp` without indications of
+modify your history: your shell history will say `warp` without indications of
 where you warped to.
 
 See below.
 
 
-## Warp as a bash script
+## Warp as a bash/zsh script
 
-Add `source PATH/TO/warp` in your `.bashrc`. Now you can warp: reload your
+Add `source PATH/TO/warp` to your `.bashrc`/`.zshrc`. Now you can warp: reload your
 shell, type `warp`, press enter. A function was added to your shell.
 
 `warp` will modify the history to contain the SSH command (as if you typed it)
